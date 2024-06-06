@@ -1,0 +1,24 @@
+{
+  "name": "Node.js Dev Container",
+  // Base Docker image for Node.js
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
+  },
+  // Command to add the workspace to the safe directory and install dependencies
+  "postCreateCommand": "git config --global --add safe.directory /workspaces/learn-devcontainers && npm install",
+  // Forward port 3000 for local development
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "API"
+    }
+  },
+  // Set the user inside the container
+  "remoteUser": "root"
+}
