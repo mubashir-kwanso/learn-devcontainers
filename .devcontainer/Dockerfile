@@ -1,2 +1,1 @@
-ARG VARIANT="jammy"
-FROM buildpack-deps:${VARIANT}-curl
+FROM node:20-bookworm
